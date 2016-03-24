@@ -58,16 +58,16 @@ function RNNOption:__init()
                 'model.memsize', 32,
                 'Memory buffer size (number of previous words stored in the memory)')
     self:option('-vsize',
-                'model.vec_size', 64,
+                'model.vec_size', 128,
                 'Word embedding size')
     self:option('-numfeat',
                 'model.num_feat_maps', 64,
                 'Number of feature maps after 1st convolution')
     self:option('-kernels',
-                'model.kernels', {3, 5, 7},
+                'model.kernels', {3, 4, 5, 7},
                 'kernel size of convolutions, table format')
     self:option('-kmax',
-                'model.kmax', 1,
+                'model.kmax', 2,
                 'number of k max in pooling')
     self:option('-dropout',
                 'model.dropout', 0.5,

@@ -126,13 +126,15 @@ function eval(split)
 
 		local net_output = model:forward(context)
 
+		-- print(net_output:size(1))
+
 		-- Get loss through the decoder
 		local loss, tree_output
 		if smt == false then
 			-- Same for HSM and SM
 			loss = criterion:forward(net_output, target)
 		else
-			tree_output = softmaxtree:forward{net_output, target}
+			tree_output = softmaxtree:forward({net_output, target})
 			loss = criterion:forward(tree_output, target)
 		end
 		
